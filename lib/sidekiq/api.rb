@@ -275,7 +275,7 @@ module Sidekiq
         end.first
         results.map do |message|
           msg = Sidekiq.load_json(message)
-          msg['retry_count'] = msg['retry_count'] - 1
+          #msg['retry_count'] = msg['retry_count'] - 1
           Sidekiq::Client.push(msg)
         end
       end
